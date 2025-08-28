@@ -1,0 +1,365 @@
+/* Raffle Configuration Component Styles */
+
+.raffle-configuration {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.raffle-configuration .ant-card {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.raffle-configuration .ant-card-head-title {
+  font-weight: 600;
+  color: #262626;
+}
+
+/* Animation Style Selection */
+.animation-style-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.animation-style-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.animation-style-card.selected {
+  border-color: #1890ff !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.animation-preview {
+  text-align: center;
+  font-size: 24px;
+  margin: 8px 0;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animation-description {
+  font-size: 12px;
+  color: #8c8c8c;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+/* Color Scheme Section */
+.color-scheme-section {
+  background: #fafafa;
+  padding: 16px;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.color-picker-item {
+  text-align: center;
+}
+
+.color-picker-item .ant-form-item-label {
+  text-align: center;
+}
+
+.color-preview {
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  margin-top: 8px;
+  border: 1px solid #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Background Image Upload */
+.background-upload-section {
+  border: 2px dashed #d9d9d9;
+  border-radius: 6px;
+  padding: 20px;
+  text-align: center;
+  transition: border-color 0.3s ease;
+}
+
+.background-upload-section:hover {
+  border-color: #1890ff;
+}
+
+.background-upload-section.has-image {
+  border-color: #52c41a;
+  background-color: #f6ffed;
+}
+
+.background-preview {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.background-preview-container {
+  position: relative;
+  display: inline-block;
+}
+
+.background-preview-overlay {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: white;
+  font-size: 12px;
+}
+
+/* CSV Upload Section */
+.csv-upload-section {
+  border: 2px dashed #d9d9d9;
+  border-radius: 6px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.csv-upload-section:hover {
+  border-color: #1890ff;
+}
+
+.csv-upload-section.validating {
+  border-color: #faad14;
+  background-color: #fffbe6;
+}
+
+.csv-upload-section.valid {
+  border-color: #52c41a;
+  background-color: #f6ffed;
+}
+
+.csv-upload-section.invalid {
+  border-color: #ff4d4f;
+  background-color: #fff2f0;
+}
+
+.csv-validation-progress {
+  margin-top: 16px;
+}
+
+.csv-validation-results {
+  margin-top: 16px;
+  text-align: left;
+}
+
+.csv-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 12px;
+  padding: 12px;
+  background: #f0f2f5;
+  border-radius: 6px;
+}
+
+.csv-stat-item {
+  text-align: center;
+}
+
+.csv-stat-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1890ff;
+}
+
+.csv-stat-label {
+  font-size: 12px;
+  color: #8c8c8c;
+  margin-top: 4px;
+}
+
+/* File Tags */
+.file-tag {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.file-tag .anticon {
+  font-size: 14px;
+}
+
+/* Logo Position Visualization */
+.logo-position-preview {
+  width: 120px;
+  height: 80px;
+  border: 2px solid #d9d9d9;
+  border-radius: 4px;
+  position: relative;
+  margin: 8px auto;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.logo-position-dot {
+  width: 8px;
+  height: 8px;
+  background: #ff4d4f;
+  border-radius: 50%;
+  position: absolute;
+  border: 2px solid white;
+}
+
+.logo-position-dot.top-left {
+  top: 4px;
+  left: 4px;
+}
+
+.logo-position-dot.top-right {
+  top: 4px;
+  right: 4px;
+}
+
+.logo-position-dot.bottom-left {
+  bottom: 4px;
+  left: 4px;
+}
+
+.logo-position-dot.bottom-right {
+  bottom: 4px;
+  right: 4px;
+}
+
+.logo-position-dot.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Advanced Settings */
+.advanced-settings {
+  background: #fafafa;
+  padding: 16px;
+  border-radius: 6px;
+}
+
+.duration-input {
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .raffle-configuration {
+    padding: 16px;
+  }
+  
+  .animation-style-card {
+    margin-bottom: 12px;
+  }
+  
+  .color-scheme-section {
+    padding: 12px;
+  }
+  
+  .csv-stats {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .background-preview {
+    max-height: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  .raffle-configuration {
+    padding: 12px;
+  }
+  
+  .animation-preview {
+    font-size: 20px;
+    min-height: 32px;
+  }
+  
+  .animation-description {
+    font-size: 11px;
+  }
+}
+
+/* Loading States */
+.configuration-loading {
+  position: relative;
+}
+
+.configuration-loading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+  border-radius: 8px;
+}
+
+/* Form Validation */
+.ant-form-item-has-error .animation-style-card {
+  border-color: #ff4d4f;
+}
+
+.ant-form-item-has-error .csv-upload-section {
+  border-color: #ff4d4f;
+  background-color: #fff2f0;
+}
+
+/* Success States */
+.upload-success {
+  color: #52c41a;
+  font-weight: 500;
+}
+
+.validation-success {
+  background: #f6ffed;
+  border: 1px solid #b7eb8f;
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 8px;
+}
+
+.validation-error {
+  background: #fff2f0;
+  border: 1px solid #ffccc7;
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 8px;
+}
+
+/* Tooltips */
+.configuration-tooltip {
+  max-width: 300px;
+}
+
+/* Action Buttons */
+.configuration-actions {
+  text-align: right;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 24px;
+}
+
+.configuration-actions .ant-btn {
+  margin-left: 8px;
+}
+
+.configuration-actions .ant-btn:first-child {
+  margin-left: 0;
+}

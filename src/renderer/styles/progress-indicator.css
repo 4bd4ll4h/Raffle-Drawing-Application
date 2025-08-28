@@ -1,0 +1,369 @@
+/* Progress Indicator Styles */
+
+.progress-indicator {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #333;
+}
+
+/* Linear Progress Indicator */
+.progress-indicator.linear {
+  width: 100%;
+}
+
+.progress-indicator.linear.small {
+  font-size: 12px;
+}
+
+.progress-indicator.linear.medium {
+  font-size: 14px;
+}
+
+.progress-indicator.linear.large {
+  font-size: 16px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.progress-title {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  gap: 6px;
+}
+
+.status-icon {
+  font-size: 1.1em;
+  min-width: 16px;
+  text-align: center;
+}
+
+.progress-indicator.running .status-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.percentage {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-bar-container {
+  margin-bottom: 6px;
+}
+
+.progress-bar-background {
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-indicator.small .progress-bar-background {
+  height: 4px;
+}
+
+.progress-indicator.medium .progress-bar-background {
+  height: 6px;
+}
+
+.progress-indicator.large .progress-bar-background {
+  height: 8px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar-fill.animated::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.progress-subtitle {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.time-remaining {
+  font-size: 0.85em;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.progress-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.cancel-button {
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancel-button:hover {
+  background: #ff7875;
+}
+
+.cancel-button:active {
+  background: #d9363e;
+}
+
+/* Circular Progress Indicator */
+.progress-indicator.circular {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.progress-circle-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.progress-circle-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-indicator.circular.small .progress-circle-content {
+  font-size: 10px;
+}
+
+.progress-indicator.circular.medium .progress-circle-content {
+  font-size: 12px;
+}
+
+.progress-indicator.circular.large .progress-circle-content {
+  font-size: 14px;
+}
+
+.progress-indicator.circular .percentage {
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.progress-indicator.circular .progress-title {
+  font-size: 0.9em;
+  margin-bottom: 4px;
+}
+
+.progress-indicator.circular .progress-subtitle {
+  font-size: 0.8em;
+  margin-bottom: 6px;
+}
+
+.progress-indicator.circular .time-remaining {
+  font-size: 0.75em;
+  margin-bottom: 8px;
+}
+
+.progress-indicator.circular .cancel-button {
+  font-size: 0.8em;
+  padding: 3px 10px;
+}
+
+/* Animated circle stroke */
+circle.animated {
+  transition: stroke-dashoffset 0.3s ease-out;
+}
+
+/* Status-specific styles */
+.progress-indicator.completed .progress-title {
+  color: #52c41a;
+}
+
+.progress-indicator.error .progress-title {
+  color: #ff4d4f;
+}
+
+.progress-indicator.cancelled .progress-title {
+  color: #faad14;
+}
+
+.progress-indicator.running .progress-title {
+  color: #1890ff;
+}
+
+/* Bulk Progress Indicator */
+.bulk-progress-indicator {
+  background: #fafafa;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.overall-progress {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e8e8e8;
+  position: relative;
+}
+
+.cancel-all-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancel-all-button:hover {
+  background: #ff7875;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-progress-item {
+  background: white;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  padding: 12px;
+  transition: box-shadow 0.2s;
+}
+
+.task-progress-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .progress-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .percentage {
+    align-self: flex-end;
+  }
+  
+  .bulk-progress-indicator {
+    padding: 12px;
+  }
+  
+  .cancel-all-button {
+    position: static;
+    margin-top: 8px;
+    align-self: flex-start;
+  }
+  
+  .overall-progress {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .progress-indicator {
+    color: #e8e8e8;
+  }
+  
+  .progress-bar-background {
+    background-color: #404040;
+  }
+  
+  .progress-subtitle {
+    color: #b8b8b8;
+  }
+  
+  .time-remaining {
+    color: #999;
+  }
+  
+  .bulk-progress-indicator {
+    background: #2a2a2a;
+    border-color: #404040;
+  }
+  
+  .task-progress-item {
+    background: #333;
+    border-color: #404040;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .progress-bar-background {
+    border: 1px solid currentColor;
+  }
+  
+  .progress-bar-fill {
+    border: 1px solid currentColor;
+  }
+  
+  .cancel-button {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar-fill,
+  circle.animated,
+  .progress-indicator.running .status-icon {
+    transition: none;
+    animation: none;
+  }
+  
+  .progress-bar-fill.animated::after {
+    animation: none;
+  }
+}

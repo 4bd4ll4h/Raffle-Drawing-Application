@@ -1,0 +1,11 @@
+provider: github
+owner: your-github-username
+repo: raffle-drawing-app
+private: false
+releaseType: release
+
+# Development configuration for auto-updater
+# This file is used when NODE_ENV is set to 'development'
+# It allows testing the update mechanism during development
+
+# For production, the configuration is taken from package.json build.publish section

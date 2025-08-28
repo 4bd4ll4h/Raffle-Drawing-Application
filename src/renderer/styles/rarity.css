@@ -1,0 +1,357 @@
+/* Rarity System CSS - CS2-style color assignments and visual effects */
+
+/* ============================================================================
+   RARITY COLOR VARIABLES
+   ============================================================================ */
+
+:root {
+  /* Consumer Grade - Most Common */
+  --rarity-consumer-color: #B0C3D9;
+  --rarity-consumer-rgb: 176, 195, 217;
+  --rarity-consumer-chance: 79.92%;
+
+  /* Industrial Grade */
+  --rarity-industrial-color: #5E98D9;
+  --rarity-industrial-rgb: 94, 152, 217;
+  --rarity-industrial-chance: 15.98%;
+
+  /* Mil-Spec */
+  --rarity-milspec-color: #4B69FF;
+  --rarity-milspec-rgb: 75, 105, 255;
+  --rarity-milspec-chance: 3.2%;
+
+  /* Restricted */
+  --rarity-restricted-color: #8847FF;
+  --rarity-restricted-rgb: 136, 71, 255;
+  --rarity-restricted-chance: 0.64%;
+
+  /* Classified */
+  --rarity-classified-color: #D32CE6;
+  --rarity-classified-rgb: 211, 44, 230;
+  --rarity-classified-chance: 0.26%;
+
+  /* Covert */
+  --rarity-covert-color: #EB4B4B;
+  --rarity-covert-rgb: 235, 75, 75;
+  --rarity-covert-chance: 0.20%;
+
+  /* Exceedingly Rare - Rarest */
+  --rarity-exceedingly-rare-color: #FFD700;
+  --rarity-exceedingly-rare-rgb: 255, 215, 0;
+  --rarity-exceedingly-rare-chance: 0.025%;
+}
+
+/* ============================================================================
+   BASE RARITY CLASSES
+   ============================================================================ */
+
+.rarity-consumer {
+  --current-rarity-color: var(--rarity-consumer-color);
+  --current-rarity-rgb: var(--rarity-consumer-rgb);
+}
+
+.rarity-industrial {
+  --current-rarity-color: var(--rarity-industrial-color);
+  --current-rarity-rgb: var(--rarity-industrial-rgb);
+}
+
+.rarity-milspec {
+  --current-rarity-color: var(--rarity-milspec-color);
+  --current-rarity-rgb: var(--rarity-milspec-rgb);
+}
+
+.rarity-restricted {
+  --current-rarity-color: var(--rarity-restricted-color);
+  --current-rarity-rgb: var(--rarity-restricted-rgb);
+}
+
+.rarity-classified {
+  --current-rarity-color: var(--rarity-classified-color);
+  --current-rarity-rgb: var(--rarity-classified-rgb);
+}
+
+.rarity-covert {
+  --current-rarity-color: var(--rarity-covert-color);
+  --current-rarity-rgb: var(--rarity-covert-rgb);
+}
+
+.rarity-exceedinglyRare {
+  --current-rarity-color: var(--rarity-exceedingly-rare-color);
+  --current-rarity-rgb: var(--rarity-exceedingly-rare-rgb);
+}
+
+/* ============================================================================
+   RARITY OVERLAY EFFECTS
+   ============================================================================ */
+
+.rarity-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.rarity-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--current-rarity-rgb), 0.1) 0%,
+    rgba(var(--current-rarity-rgb), 0.3) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.rarity-overlay > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hover effects for interactive elements */
+.rarity-overlay:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 20px rgba(var(--current-rarity-rgb), 0.6),
+    0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================================================
+   RARITY BORDER EFFECTS
+   ============================================================================ */
+
+.rarity-border {
+  border: 2px solid var(--current-rarity-color);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.rarity-border:hover {
+  border-width: 3px;
+  box-shadow: 0 0 10px rgba(var(--current-rarity-rgb), 0.5);
+}
+
+/* ============================================================================
+   RARITY GLOW EFFECTS
+   ============================================================================ */
+
+.rarity-glow {
+  filter: drop-shadow(0 0 10px rgba(var(--current-rarity-rgb), 0.5));
+  transition: filter 0.3s ease;
+}
+
+.rarity-glow:hover {
+  filter: drop-shadow(0 0 15px rgba(var(--current-rarity-rgb), 0.8));
+}
+
+/* ============================================================================
+   RARITY TEXT EFFECTS
+   ============================================================================ */
+
+.rarity-text {
+  color: var(--current-rarity-color);
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(var(--current-rarity-rgb), 0.4);
+  transition: all 0.3s ease;
+}
+
+.rarity-text:hover {
+  text-shadow: 0 0 8px rgba(var(--current-rarity-rgb), 0.8);
+}
+
+/* ============================================================================
+   ANIMATION KEYFRAMES FOR RARITY REVEALS
+   ============================================================================ */
+
+@keyframes rarityReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+    box-shadow: none;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(var(--current-rarity-rgb), 0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(var(--current-rarity-rgb), 0.5);
+  }
+}
+
+@keyframes rarityPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(var(--current-rarity-rgb), 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(var(--current-rarity-rgb), 0.8);
+  }
+}
+
+@keyframes rarityShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ============================================================================
+   RARITY-SPECIFIC ANIMATIONS
+   ============================================================================ */
+
+/* Consumer Grade - Subtle effects */
+.rarity-consumer .rarity-reveal {
+  animation: rarityReveal 1s ease-out;
+}
+
+/* Industrial Grade - Slightly more pronounced */
+.rarity-industrial .rarity-reveal {
+  animation: rarityReveal 1.2s ease-out;
+}
+
+/* Mil-Spec - More dramatic */
+.rarity-milspec .rarity-reveal {
+  animation: rarityReveal 1.5s ease-out, rarityPulse 2s ease-in-out infinite 1.5s;
+}
+
+/* Restricted - Very dramatic */
+.rarity-restricted .rarity-reveal {
+  animation: rarityReveal 2s ease-out, rarityPulse 1.5s ease-in-out infinite 2s;
+}
+
+/* Classified - Extremely dramatic */
+.rarity-classified .rarity-reveal {
+  animation: rarityReveal 2.5s ease-out, rarityPulse 1s ease-in-out infinite 2.5s;
+}
+
+/* Covert - Maximum drama */
+.rarity-covert .rarity-reveal {
+  animation: rarityReveal 3s ease-out, rarityPulse 0.8s ease-in-out infinite 3s;
+}
+
+/* Exceedingly Rare - Ultimate drama with shimmer */
+.rarity-exceedinglyRare .rarity-reveal {
+  animation: rarityReveal 4s ease-out, rarityPulse 0.6s ease-in-out infinite 4s;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--rarity-exceedingly-rare-rgb), 0.3),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: rarityReveal 4s ease-out, rarityShimmer 2s linear infinite 4s;
+}
+
+/* ============================================================================
+   UTILITY CLASSES
+   ============================================================================ */
+
+.rarity-badge {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--current-rarity-color);
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.rarity-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--current-rarity-color);
+  margin-right: 8px;
+}
+
+.rarity-bar {
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--current-rarity-color) 0%,
+    rgba(var(--current-rarity-rgb), 0.3) 100%
+  );
+  border-radius: 2px;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .rarity-overlay {
+    border-width: 1px;
+  }
+  
+  .rarity-glow {
+    filter: drop-shadow(0 0 5px rgba(var(--current-rarity-rgb), 0.4));
+  }
+  
+  .rarity-badge {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* ============================================================================
+   ACCESSIBILITY
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .rarity-overlay,
+  .rarity-border,
+  .rarity-glow,
+  .rarity-text {
+    transition: none;
+  }
+  
+  .rarity-reveal,
+  .rarity-consumer .rarity-reveal,
+  .rarity-industrial .rarity-reveal,
+  .rarity-milspec .rarity-reveal,
+  .rarity-restricted .rarity-reveal,
+  .rarity-classified .rarity-reveal,
+  .rarity-covert .rarity-reveal,
+  .rarity-exceedinglyRare .rarity-reveal {
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .rarity-overlay {
+    border-width: 3px;
+  }
+  
+  .rarity-text {
+    text-shadow: none;
+    font-weight: 900;
+  }
+}
+
+/* ============================================================================
+   PRINT STYLES
+   ============================================================================ */
+
+@media print {
+  .rarity-overlay,
+  .rarity-glow {
+    filter: none;
+    box-shadow: none;
+  }
+  
+  .rarity-overlay::before {
+    display: none;
+  }
+  
+  .rarity-border {
+    border: 2px solid var(--current-rarity-color) !important;
+  }
+}
